@@ -1,0 +1,355 @@
+@import "tailwindcss";
+
+/* Itransition Color Variables */
+:root {
+  --background: #ffffff;
+  --foreground: #1e293b;
+  --primary: #082eb5;
+  --primary-hover: #06248c;
+  --primary-active: #00155e;
+  --primary-foreground: #ffffff;
+  --secondary: #64748b;
+  --muted: #f8fafc;
+  --border: #e2e8f0;
+  --accent: #f1f5f9;
+  --main-color: #082eb5;
+  --text-dark: #000000;
+  --text-light: #ffffff;
+  --gray-light: #f8f8f8;
+  --shadow-color: rgba(8, 46, 181, 0.12);
+}
+
+@layer base {
+  :root {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-muted: var(--muted);
+    --color-border: var(--border);
+    --color-accent: var(--accent);
+    --font-sans: var(--font-inter);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Homepage Header Styles */
+.homepage-header-content {
+  color: #fff;
+  height: 100%;
+  margin: 0 auto;
+  max-width: 100%;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.homepage-header-content h1 {
+  font-size: 52px;
+  line-height: 72px;
+  margin-left: 173px;
+  max-width: 1036px;
+  text-align: left;
+  color: #fff;
+  font-weight: 900;
+}
+
+@media only screen and (min-width: 1535px) and (max-width: 1919px) {
+  .homepage-header-content h1 {
+    margin-left: 170px;
+    max-width: 1267px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .first-level-title, h1 {
+    line-height: 72px;
+  }
+}
+
+.first-level-title, h1 {
+  color: #fff;
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* Font family override */
+body * {
+  font-family: November, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Itransition Button Styles */
+.main-button {
+  align-items: center;
+  border-radius: 30px;
+  box-shadow: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 400;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: 0;
+  padding: 18px 30px;
+  position: relative;
+  text-decoration: none;
+  text-transform: none;
+  transition: background-color 0.3s;
+  user-select: none;
+  vertical-align: middle;
+  border: none;
+}
+
+.main-button.disabled,
+.main-button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.main-button.outlined {
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  background-color: transparent;
+}
+
+.main-button.outlined:hover {
+  background-color: transparent;
+}
+
+.main-button-label {
+  align-items: inherit;
+  display: inherit;
+  justify-content: inherit;
+  width: 100%;
+}
+
+.main-button-blue {
+  background-color: var(--primary);
+}
+
+.main-button-blue:hover {
+  background-color: var(--primary-hover);
+}
+
+.main-button-blue:active {
+  background-color: var(--primary-active);
+}
+
+/* Itransition Text Field Styles */
+.main-text-field {
+  border: 0;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+  position: relative;
+  vertical-align: top;
+}
+
+.main-text-field .text-input-field {
+  border: 0;
+  font-weight: 400;
+  position: relative;
+}
+
+.main-text-field-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0.00938em;
+  line-height: 1;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: translate(14px, 20px) scale(1);
+  transform-origin: top left;
+  transition: color 0.2s cubic-bezier(0, 0, 0.2, 1) 0ms, transform 0.2s cubic-bezier(0, 0, 0.2, 1) 0ms;
+  z-index: 1;
+}
+
+.main-text-field-label.shrink {
+  transform: translate(14px, -3px) scale(0.75);
+}
+
+.main-text-field-input {
+  animation-duration: 10ms;
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  color: currentColor;
+  display: block;
+  font: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+  min-width: 0;
+  padding: 6px 0 7px;
+  width: 100%;
+}
+
+.main-text-field-fieldset {
+  border: 0;
+  border-radius: inherit;
+  border-style: solid;
+  border-width: 1px;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  overflow: hidden;
+  padding: 0 8px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: -5px;
+}
+
+/* Itransition Navigation Styles */
+.main-navigation-item {
+  position: relative;
+  display: inline-block;
+}
+
+.main-navigation-item.has-children {
+  cursor: pointer;
+}
+
+.main-navigation-item.has-children:before {
+  content: '';
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* Itransition Footer Styles */
+.footer-inner.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-item.navigation {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-navigation {
+  display: flex;
+  gap: 32px;
+}
+
+.footer-navigation-item {
+  margin: 0;
+}
+
+.footer-navigation-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s;
+}
+
+.footer-navigation-link:hover {
+  color: var(--main-color);
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 767px) {
+  .footer-navigation {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .main-button {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 1279px) {
+  .footer-inner.container {
+    padding: 0 18px;
+  }
+}
+
+/* Typography Styles */
+.first-level-title {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--text-dark);
+}
+
+.second-level-title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.third-level-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.six-level-title {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Container Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media only screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media only screen and (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
